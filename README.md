@@ -55,3 +55,7 @@ mkdir cipher plain
 gocryptfs -init cipher
 gocryptfs cipher plain
 ```
+run container with env variables
+```bash
+docker run --privileged --device /dev/fuse -e "VAULT_URL=<url>" -e "VAULT_TOKEN=<token>" -e "VAULT_KEY=password" -e "MOUNT_SRCPATH=/mnt/t" -e ... -it gocryptmnt sh
+```
