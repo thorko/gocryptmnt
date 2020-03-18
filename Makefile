@@ -8,5 +8,8 @@ install:
 uninstall:
 	rm -f /usr/local/bin/gocryptmnt
 
+docker:
+	go get -v github.com/thorko/gocryptmnt
+
 test:
 	/tmp/gocryptmnt --help
