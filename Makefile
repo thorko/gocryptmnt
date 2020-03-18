@@ -9,7 +9,7 @@ uninstall:
 	rm -f /usr/local/bin/gocryptmnt
 
 docker:
-	go get -v github.com/thorko/gocryptmnt
+	go build -o /tmp/gocryptmnt gocryptmnt.go
 
 test:
 	/tmp/gocryptmnt --help
