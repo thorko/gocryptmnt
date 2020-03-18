@@ -43,3 +43,15 @@ export MOUNT_TRGPATH=/tmp/plain
 ```bash
 gocryptmnt -u <url> -s <token> -l secrets/data/gocryptfs -i 120s -f password -p /tmp/cipher -t /tmp/plain
 ```
+
+## Build docker image
+```bash
+docker build -t gocryptmnt .
+```
+### run docker container
+```bash
+docker run --privileged --device /dev/fuse -it gocryptmnt sh
+mkdir cipher plain
+gocryptfs -init cipher
+gocryptfs cipher plain
+```
