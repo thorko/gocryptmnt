@@ -9,7 +9,6 @@ uninstall:
 	rm -f /usr/local/bin/gocryptmnt
 
 docker:
-	cd /go/src/github.com/thorko/gocryptmnt
 	CGO_ENABLED=0 GOOS=linux go build -o /tmp/gocryptmnt gocryptmnt.go
 
 test:
