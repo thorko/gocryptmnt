@@ -66,8 +66,6 @@ mkdir /opt/gocryptfs/cipher
 gocryptfs -init /opt/gocryptfs/cipher
 # create test secret in vault
 vault kv put secrets/test password=myP@ssw0rd
-docker run --privileged --device /dev/fuse -e "VAULT_URL=https://10.2.0.1:8200"  -v /opt/gocrypt/cipher:/opt/cipher -e "VAULT_TOKEN=s.OYX5xvipiXkskkglrMBhHzu2zuOe" -e "VAULT_KEY=password" -e "MOUNT_SRCPATH=/opt/cipher" -e "MOUNT_TRGPATH=/mnt" -e "IDLE_TIME=120s" -e "VAULT_SECRET=secrets/data/test" -e "VAULT_SKIP_VERIFY=1"  -it gocryptmnt sh
-# once you are in the container run
-gocryptmnt
+docker run --privileged --device /dev/fuse -e "VAULT_URL=https://10.2.0.1:8200"  -v /opt/gocrypt/cipher:/opt/cipher -e "VAULT_TOKEN=s.OYX5xvipiXkskkglrMBhHzu2zuOe" -e "VAULT_KEY=password" -e "MOUNT_SRCPATH=/opt/cipher" -e "MOUNT_TRGPATH=/mnt" -e "IDLE_TIME=120s" -e "VAULT_SECRET=secrets/data/test" -e "VAULT_SKIP_VERIFY=1"  -it gocryptmnt sh -c "gocryptmnt && sh"
 # the folder will be mounted at /mnt
 ```
