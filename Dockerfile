@@ -10,6 +10,6 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 RUN apk add fuse
 WORKDIR /root
-COPY --from=builder0 /tmp/gocryptmnt /usr/local/bin/gocryptmnt
-COPY --from=builder1 /go/src/github.com/rfjakob/gocryptfs/gocryptfs /usr/local/bin/gocryptfs
+COPY --from=builder0 /tmp/gocryptmnt /usr/bin/gocryptmnt
+COPY --from=builder1 /go/src/github.com/rfjakob/gocryptfs/gocryptfs /usr/bin/gocryptfs
 CMD ["/bin/sh"]
